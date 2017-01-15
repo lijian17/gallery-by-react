@@ -1,14 +1,14 @@
 'use strict';
 
-let path = require('path');//node内置模块
-let webpack = require('webpack');//webpack模块
+let path = require('path');//node鍐呯疆妯″潡
+let webpack = require('webpack');//webpack妯″潡
 let baseConfig = require('./base');// cfg/base
 let defaultSettings = require('./defaults');// cfg/defaults
 
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
 
-//结合defaults.js、base.js生成一个config对象
+//缁撳悎defaults.js銆乥ase.js鐢熸垚涓�涓猚onfig瀵硅薄
 let config = Object.assign({}, baseConfig, {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,

@@ -1,10 +1,10 @@
 'use strict';
 
-const path = require('path');//node×Ô´øµÄ¿â
-const args = require('minimist')(process.argv.slice(2));//´¦ÀíÃüÁîĞĞ²ÎÊıµÄÄ£¿é
+const path = require('path');//nodeè‡ªå¸¦çš„åº“
+const args = require('minimist')(process.argv.slice(2));//å¤„ç†å‘½ä»¤è¡Œå‚æ•°çš„æ¨¡å—
 
 // List of allowed environments
-const allowedEnvs = ['dev', 'dist', 'test'];//»·¾³ÅäÖÃ
+const allowedEnvs = ['dev', 'dist', 'test'];//ç¯å¢ƒé…ç½®
 
 // Set the correct environment
 let env;
@@ -14,8 +14,8 @@ if (args._.length > 0 && args._.indexOf('start') !== -1) {
   env = args.env;
 } else {
   env = 'dev';
-}//È·¶¨env
-process.env.REACT_WEBPACK_ENV = env;//ºóÃæ¾ßÌåÃ¿¸öenvµÄÅäÖÃ£¬ÒÀÀµÓÚÕâ¸öÖµ
+}//ç¡®å®šenv
+process.env.REACT_WEBPACK_ENV = env;//åé¢å…·ä½“æ¯ä¸ªenvçš„é…ç½®ï¼Œä¾èµ–äºè¿™ä¸ªå€¼
 
 /**
  * Build the webpack configuration
@@ -25,7 +25,7 @@ process.env.REACT_WEBPACK_ENV = env;//ºóÃæ¾ßÌåÃ¿¸öenvµÄÅäÖÃ£¬ÒÀÀµÓÚÕâ¸öÖµ
 function buildConfig(wantedEnv) {
   let isValid = wantedEnv && wantedEnv.length > 0 && allowedEnvs.indexOf(wantedEnv) !== -1;
   let validEnv = isValid ? wantedEnv : 'dev';
-  let config = require(path.join(__dirname, 'cfg/' + validEnv));// ÀıÈç¼ÓÔØcfg/dev
+  let config = require(path.join(__dirname, 'cfg/' + validEnv));// ä¾‹å¦‚åŠ è½½cfg/dev
   return config;
 }
 

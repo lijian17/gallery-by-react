@@ -1,5 +1,9 @@
 'use strict';
 
-// Settings configured here will be merged into the final config object.
-export default {
-}
+import baseConfig from './base';
+
+let config = {
+  appEnv: 'test'  // don't remove the appEnv property here
+};
+
+export default Object.freeze(Object.assign(baseConfig, config));
